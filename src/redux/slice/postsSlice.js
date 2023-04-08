@@ -8,9 +8,20 @@ const initialState = {
     error: undefined
 };
 // Actions
+// Get all posts
 export const fetchPosts = createAsyncThunk('posts/fetch', async() => {
     const res = await axios.get(apiURL);
     return res.data;
+});
+// Get all posts
+export const searchPost = createAsyncThunk('posts/fetch', async(payload) => {
+    try {
+        const res = await axios.get(`${apiURL}/${payload}`);
+        return res.data;
+    }catch(err) {
+        console.log(err);
+        return err
+    }
 });
 const postsSlice = createSlice({
     name: 'posts',
@@ -27,6 +38,20 @@ const postsSlice = createSlice({
         builder.addCase(fetchPosts.rejected, (state, action) => {
             state.loading = false;
             state.posts = [];
+            state.error = action.payload;
+        });
+        // Search post actions
+        builder.addCase(searchPost.pending, (state, action) => {
+            state.loading = true;
+            
+        });
+        builder.addCase(searchPost.fulfilled, (state, action) => {
+            state.loading = false;
+            state.posts = [action.payload];
+        });
+        builder.addCase(searchPost.rejected, (state, action) => {
+            state.loading = false;
+            state.props = [];
             state.error = action.payload;
         });
     }

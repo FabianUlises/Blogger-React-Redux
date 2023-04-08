@@ -26,7 +26,13 @@ const PostsList = () => {
     <section className='postlist-container'>
       <h2 className='section-title'>Total Posts 100</h2>
       <div className='posts-container'>
-        {displayPosts}
+        {
+          loading
+          ? <h1>Loading...</h1>
+          : error
+          ? <h1>{error}</h1>
+          : displayPosts
+        }
       </div>
     </section>
   );

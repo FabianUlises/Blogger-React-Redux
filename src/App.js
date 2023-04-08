@@ -1,11 +1,11 @@
-import './App.css';
-
+// Dependencies
+import React from "react";
+// Components
+import SearchPost from "./components/searchpost/SearchPost";
 function App() {
   return (
     <div className="App">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
+      <SearchPost />
     </div>
   );
 }

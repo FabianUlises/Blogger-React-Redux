@@ -1,6 +1,7 @@
 // Dependencies
 import React, { useState } from 'react';
-
+// Styles
+import styles from './searchpost.css';
 const SearchPost = () => {
     // State
     const [input, setInput] = useState('');

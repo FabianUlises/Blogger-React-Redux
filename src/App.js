@@ -8,6 +8,6 @@ function App() {
       <SearchPost />
     </div>
   );
-}
+};
 
 export default App;

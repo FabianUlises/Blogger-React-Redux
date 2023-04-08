@@ -1,8 +1,12 @@
 // Dependencies
 import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+// Redux
+import { searchPost } from '../../redux/slice/postsSlice';
 // Styles
 import styles from './searchpost.css';
 const SearchPost = () => {
+    const dispatch = useDispatch();
     // State
     const [input, setInput] = useState('');
     // Handle user input and set it to state
@@ -13,6 +17,9 @@ const SearchPost = () => {
     // Handle form submit
     const handleSubmit = (e) => {
         e.preventDefault();
+        // Dont submit if input is empty
+        if(input === '') return;
+        dispatch(searchPost(input));
     };
     return (
         <div className='searchForm'>

@@ -18,9 +18,8 @@ export const searchPost = createAsyncThunk('posts/search', async(payload) => {
     try {
         const res = await axios.get(`${apiURL}/${payload}`);
         return res.data;
-    }catch(err) {
-        console.log(err);
-        return err
+    }catch(error) {
+        return error
     }
 });
 const postsSlice = createSlice({

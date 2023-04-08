@@ -22,9 +22,10 @@ const PostsList = () => {
   const displayPosts = posts.map((post) => (
     <Post title={post.title} content={post.body} key={post.id} />
   ));
+  console.log(error)
   return (
     <section className='postlist-container'>
-      <h2 className='section-title'>Total Posts 100</h2>
+      <h2 className='section-title'>Total Posts {posts.length}</h2>
       <div className='posts-container'>
         {
           loading

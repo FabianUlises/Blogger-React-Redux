@@ -14,7 +14,7 @@ export const fetchPosts = createAsyncThunk('posts/fetch', async() => {
     return res.data;
 });
 // Get all posts
-export const searchPost = createAsyncThunk('posts/fetch', async(payload) => {
+export const searchPost = createAsyncThunk('posts/search', async(payload) => {
     try {
         const res = await axios.get(`${apiURL}/${payload}`);
         return res.data;
